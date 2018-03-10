@@ -1,7 +1,7 @@
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
-    state = {
+    this.state = {
       products: [],
     };
     this.handleProductUpVote = this.handleProductUpVote.bind(this);
