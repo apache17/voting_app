@@ -1,4 +1,15 @@
 class ProductList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
+    };
+  }
+
+  componentDidMount() {
+    this.setState({ products: Seed.products });
+  }
+
   handleProductUpVote(productId) {
     console.log(productId + ' was upvoted.');
   }
@@ -29,6 +40,11 @@ class ProductList extends React.Component {
 
 
 class Product extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleUpVote = this.handleUpVote.bind(this);
+  }
+
   handleUpVote() {
     this.props.onVote(this.props.id);
   }
@@ -41,7 +57,6 @@ class Product extends React.Component {
         <div className='middle aligned content'>
           <div className='header'>
             <a onClick={this.handleUpVote}>
-
               <i className='large caret up icon' />
             </a>
             {this.props.votes}
